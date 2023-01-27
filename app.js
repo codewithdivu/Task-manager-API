@@ -7,19 +7,9 @@ const tasks = require("./routes/tasks");
 require("dotenv").config();
 
 // middleware
+app.use(express.static("./public"));
 app.use(express.json());
-
-app.get("/hello", (req, res) => {
-  res.send("hello bhai kem so");
-});
-
 app.use("/api/v1/tasks", tasks);
-
-// app.get('api/v1/tasks')          - get all tasks
-// app.post('api/v1/tasks')         - create new tasks
-// app.get('api/v1/tasks/:id')      - get all tasks
-// app.patch('api/v1/tasks/:id')    - get all tasks
-// app.delete('api/v1/tasks/:id')   - get all tasks
 
 // SERVER
 
