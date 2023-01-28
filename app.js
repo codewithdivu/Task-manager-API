@@ -5,11 +5,14 @@ const connectDb = require("./db/connect");
 const tasks = require("./routes/tasks");
 // env setup
 require("dotenv").config();
+// notfound
+const notFound = require("./middleware/not-found");
 
 // middleware
 app.use(express.static("./public"));
 app.use(express.json());
 app.use("/api/v1/tasks", tasks);
+app.use(notFound);
 
 // SERVER
 
