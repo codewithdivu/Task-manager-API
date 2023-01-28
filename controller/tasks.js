@@ -1,5 +1,6 @@
 const Task = require("../models/Task");
 
+// get all tasks
 const getAllTasks = async (req, res) => {
   try {
     const tasks = await Task.find({});
@@ -9,6 +10,7 @@ const getAllTasks = async (req, res) => {
   }
 };
 
+// creating task
 const createTask = async (req, res) => {
   try {
     const task = await Task.create(req.body);
@@ -17,6 +19,8 @@ const createTask = async (req, res) => {
     res.status(501).send({ msg: error });
   }
 };
+
+// get single task
 const getTask = async (req, res) => {
   try {
     const _id = req.params.id;
@@ -31,6 +35,8 @@ const getTask = async (req, res) => {
     res.status(501).send({ msg: error });
   }
 };
+
+// delete task
 const deleteTask = async (req, res) => {
   try {
     const _id = req.params.id;
@@ -45,6 +51,7 @@ const deleteTask = async (req, res) => {
   }
 };
 
+// update task
 const updateTask = async (req, res) => {
   const _id = req.params.id;
   try {
